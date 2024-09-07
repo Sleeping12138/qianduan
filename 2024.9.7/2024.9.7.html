@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script src="./2024.9.7.js"></script>
+    <style>
+        div {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button> -->
+    <!-- <button>展示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <button>放在上边试试</button> -->
+    <button>点击</button>
+    <div></div>
+    <script>
+        // $(function () {
+        //     $("button").click(function () {
+        //         // 当前元素变色
+        //         $(this).css("background", "orange");
+
+        //         // 其他元素恢复
+        //         $(this).siblings("button").css("background", "");
+        //     })
+        // })
+
+        // $(function () {
+        // $("button").click(function () {
+        //     $(this).css({
+        //         color: "",
+        //         backgroundColor: "",
+        //     })
+        //     $(this).siblings().css({
+        //         // 使用css对多个属性进行操作
+        //         color: "red",
+        //         backgroundColor: "orange",
+        //     })
+        // })
+
+        // 不写数值返回数值
+        // console.log($("button").css("fontSize"));
+
+        // $(".tab_list li").click(function () {
+        //     $(this).addClass("current").siblings().removeClass("current");
+        //     let num = $(this).index();
+        //     $(".tab_con div").eq(index).show().siblings().hide();
+        // })
+
+        // })
+        // $(function () {
+        // $("button").eq(0).click(function () {
+        //     $("div").show(1000, "linear");
+        // })
+        // $("button").eq(1).click(function () {
+        //     $("div").hide(1000, "linear")
+        // })
+        // $("button").eq(2).click(function () {
+        //     $("div").toggle(1000);
+        // })
+        //     $("button").eq(0).click(function () {
+        //         $("div").slideDown(1000, "linear");
+        //     })
+        //     $("button").eq(1).click(function () {
+        //         $("div").slideUp(1000, "linear")
+        //     })
+        //     $("button").eq(2).click(function () {
+        //         $("div").slideToggle(1000);
+        //     })
+
+        //     $("button").eq(3).hover(function () {
+        //         $("div").slideToggle(1000);
+        //     })
+        // })
+
+        $(function () {
+            $("button").click(function () {
+                // 一般所有的效果前面都需要添加stop（）使其不会进入队列排队
+                $("div").stop().animate({
+                    left: 600,
+                    top: 600,
+                    width: 300,
+                    height: 300,
+                    backgroundColor: "blue",
+                    opacity: .5
+                }, 1000);
+                // $("div").fadeTo(1000, 0.5);
+            })
+        })
+    </script>
+</body>
+
+</html>
