@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./2024.9.8.js"></script>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            padding: 10px;
+            border: 10px;
+            margin: 10px;
+            background-color: orange;
+            opacity: .8;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <a href="https://www.baidu.com/index.htm" title="baidu"></a> -->
+    <!-- <input type="text" checked value="hello world">
+    <span index="123">hello world</span>
+    <div>javascript</div> -->
+
+    <!-- <ul>
+        <li>zhangsan</li>
+        <li>lisi</li>
+        <li>wangwu</li>
+    </ul>
+    <div>hello world</div> -->
+    <div></div>
+
+    <script>
+        // $(function () {
+        //     // 获取固有属性
+        //     console.log($("a").prop("href"));
+        //     // 修改固有属性
+        //     $("a").prop("title", "alibaba");
+
+        //     $("input").change(function () {
+        //         console.log($(this).prop("checked"));
+        //     })
+        //     console.log($("span").prop("index"));
+        //     console.log($("span").attr("index"));
+
+        //     // 将数据存储到元素的内存中
+        //     $("div").data("row", "1");
+        //     console.log($("div").data("row"));
+        // })
+        // let arr = [1, 2, 3, 4, 5];
+        // $(function () {
+        //     // console.log($("div").html());
+        //     // console.log($("span").html("world hello"));
+        //     // console.log($("div").text());
+        //     // $("div").text("java")
+        //     // $("input").val("wow")
+        //     // let arr = [1, 2, 3, 4, 5];
+        //     // $.each(arr, function (index, num) {
+        //     //     console.log(index, num);
+
+        //     // })
+        //     $.each({ name: "zhangsan", age: 18 }, function (i, k) {
+        //         console.log(i, k);
+
+        //     })
+        // })
+
+        // $(function () {
+        //     // 创建元素
+        //     let temp = $("<li>zhaoliu</li>");
+        //     // $("ul").append(temp)
+        //     $("ul").prepend(temp)
+
+        //     let divTemp = $("<div>hello javascript</div>");
+        //     $("div").before(divTemp)
+
+        //     $("li").eq(1).remove();
+        //     // $("ul").empty();
+        //     $("ul").html("")
+        // })
+
+        $(function () {
+            console.log($("div").width(300));
+            console.log($("div").height());
+
+            console.log($("div").innerHeight());
+
+            console.log($("div").outerHeight());
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>
