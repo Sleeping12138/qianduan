@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./jQuery.js"></script>
+    <script defer src="./2024.9.10.js"></script>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        /*
+        div {
+            width: 100px;
+            height: 2000px;
+            background-color: orange;
+            position: relative;
+            left: 100px;
+            top: 100px;
+        }
+
+        .left {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: skyblue;
+            top: 1000px;
+            left: 0;
+        }
+        */
+        /*div {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+
+        }
+
+        .temp {
+            background-color: skyblue;
+        }
+            */
+    </style>
+</head>
+
+<body>
+    <!-- <button>click me</button>
+    <div></div> -->
+    <!-- <div class="left">点击返回顶部</div> -->
+
+    <!-- <input type="text">
+    <button>click me</button>
+    <ul>
+        <li>zhangsan</li>
+        <li>lisi</li>
+        <li>wangwu</li>
+        <li>zhaoliu</li>
+
+    </ul> -->
+
+    <input type="text" id="txt">
+    <input type="checkbox" id="check"> 记住我
+    <script>
+        // $(function () {
+        // console.log($("div").offset().top);
+        // console.log($("div").offset().left);
+        // // $(window).scroll(function () {
+        // //     console.log($(document).scrollTop().toFixed(0));
+
+        // // })
+
+        // $(window).scroll(function () {
+        //     console.log($(document).scrollTop().toFixed(0));
+
+        // })
+        // const leftTop = $(".left").offset().top;
+        // $(window).scroll(function () {
+        //     if ($(document).scrollTop() > leftTop + 300) {
+        //         $(".left").fadeIn();
+        //     } else {
+        //         $(".left").fadeOut();
+        //     }
+        // });
+        // })
+
+        // $(function () {
+        // 同时绑定多个事件
+        // $("div").on({
+        //     click: function () {
+        //         $(this).css("background", "skyBlue")
+        //     },
+        //     mouseover: function () {
+        //         $(this).css("background", "red");
+        //     },
+        //     mouseout: function () {
+        //         $(this).css("background", "green")
+        //     }
+        // });
+        // $("button").on("click mouseover", function () {
+        //     $("div").fadeToggle();
+        // });
+
+        // 使用on进行绑定的时候可以发生事件的委派
+        // $("ul").on("click", "li", function () {
+        //     console.log($(this).text());
+        // })
+
+        // let temp = $("<li>liuqi</li>");
+        // $("ul").append(temp);
+
+        // 可以发生动态绑定
+
+        //事件的解绑
+        // $("ul").off()
+        // $("ul").off("click", "li");
+
+        // 只执行一次
+        // $("ul").one("click", "li", function () {
+        //     console.log($(this).text());
+        // })
+
+        // $("div").on("click", function () {
+        //     $(this).css("background", "skyblue");
+        // })
+
+        // // $("div").click()
+        // $("div").trigger("click");
+
+        // $("input").on("focus", function () {
+        //     $(this).val("hello world");
+        // })
+
+        // $("input").triggerHandler("focus");
+        // $("input").trigger("focus");
+        // })
+
+        // $(function () {
+        // 事件对象
+
+        // $("li").on("click", function (ele) {
+        //     ele.stopPropagation()
+        //     console.log($(this).text());
+
+        // })
+
+        // 对象的拷贝
+        // let temp = {
+        //     id: 1,
+        //     name: "zhangsan",
+        //     age: 18
+        // }
+
+        // // 对象的拷贝
+        // let ret = {};
+        // $.extend(true, ret, temp);
+        // console.log(ret);
+
+        // 自定义jQuery
+        // let zjy = jQuery.noConflict();
+        // zjy("div").on("click", function () {
+        //     zjy(this).addClass("temp");
+        // });
+
+        // })
+    </script>
+</body>
+
+</html>
