@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入包 -->
+    <script src="js/echarts.min.js"></script>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            /* background-color: aliceblue; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 创建容器 -->
+    <div></div>
+    <script>
+        // 实例化对象
+        let mychart = echarts.init(document.querySelector("div"));
+        let option = {
+            title: [
+                {
+                    text: "test"
+                }
+            ],
+            polar: {
+                radius: [30, '80%']
+            },
+            angleAxis: {
+                max: 4,
+                startAngle: 75
+            },
+            radiusAxis: {
+                type: 'category',
+                data: ['a', 'b', 'c', 'd']
+            },
+            // tooltip: {},
+            series: {
+                type: 'bar',
+                data: [2, 1.2, 2.4, 3.6],
+                coordinateSystem: 'polar',
+                label: {
+                    show: true,
+                    position: 'middle',
+                    formatter: '{b}: {c}'
+                }
+            }
+        };
+        mychart.setOption(option);
+    </script>
+</body>
+
+</html>
