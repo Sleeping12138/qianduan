@@ -1,0 +1,22 @@
+body {
+    max-width: 540px;
+    min-width: 320px;
+    font: normal 16px/1.5 "PingFangSC-regular", Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    margin: 0 auto;
+    color: #000;
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.search {
+    position: fixed;
+    height: 44px;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 540px;
+    min-width: 320px;
+    background-color: aquamarine;
+}
