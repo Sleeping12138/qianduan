@@ -1,0 +1,17 @@
+html {
+  font-size: 40px;
+}
+.first,
+.second {
+  width: 2rem;
+  height: 2rem;
+}
+.first {
+  background-color: aqua;
+}
+.first a {
+  font-size: 0.3rem;
+}
+.second {
+  background-color: aquamarine;
+}
