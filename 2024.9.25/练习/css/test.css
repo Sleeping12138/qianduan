@@ -1,0 +1,94 @@
+@media screen and (min-width:1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+}
+
+header {
+    padding-left: 0 !important;
+}
+
+header .logo {
+    background-color: #429ad9;
+}
+
+header .logo img {
+    width: 100%;
+}
+
+header .nav {
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+}
+
+.u {
+    width: 100%;
+}
+
+ul li a {
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    padding-left: 30px;
+}
+
+ul li a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.new ul li {
+    float: left;
+    width: 25%;
+    height: 128px;
+    padding-right: 10px;
+}
+
+.new ul li img {
+    width: 100%;
+    height: 100%;
+}
+
+.new ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-left: 0px;
+}
+
+.new ul li a:nth-child(1) p {
+    line-height: 41px;
+    font-size: 20px;
+}
+
+.new ul li:nth-child(1) {
+    width: 50%;
+    height: 266px;
+}
+
+.new ul li p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    margin-bottom: 0;
+    width: 100%;
+    color: #fff;
+    height: 41px;
+    font-size: 12px;
+    padding: 0 10px;
+}
