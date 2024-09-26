@@ -1,0 +1,179 @@
+@media screen and (min-width:1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: #fff;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+}
+
+header {
+    padding-left: 0 !important;
+}
+
+header .logo {
+    background-color: #429ad9;
+    text-align: center;
+}
+
+header .logo img {
+    max-width: 100%;
+}
+
+header .logo span {
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+}
+
+header .nav {
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+}
+
+.u {
+    width: 100%;
+}
+
+@media screen and (max-width:767px) {
+    .nav .u li {
+        float: left;
+        width: 20%;
+    }
+
+    .new ul li:nth-child(1) {
+        width: 100% !important;
+    }
+
+    .new ul li {
+        width: 50% !important;
+    }
+
+    .publish h3 {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .nav .u li a {
+        font-size: 14px;
+    }
+
+
+}
+
+header ul li a {
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    padding-left: 30px;
+}
+
+ul li a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+
+.new ul li {
+    float: left;
+    width: 25%;
+    height: 128px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.new ul li img {
+    width: 100%;
+    height: 100%;
+}
+
+.new ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-left: 0px;
+}
+
+.new ul li:nth-child(1) a p {
+    line-height: 41px;
+    font-size: 20px;
+}
+
+.new ul li:nth-child(1) {
+    width: 50%;
+    height: 266px;
+}
+
+@media screen and (max-width:991px) {
+    header {
+        margin-bottom: 10px !important;
+    }
+}
+
+.new ul li p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    margin-bottom: 0;
+    width: 100%;
+    color: #fff;
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+.publish {
+    border-top: 1px solid #ccc;
+}
+
+.publish .row {
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.pic {
+    margin-top: 10px;
+}
+
+.pic img {
+    width: 100%;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.hot {
+    border: 2px solid #ccc;
+    margin-top: 20px;
+    padding: 0px 10px 20px;
+}
+
+.hot span {
+    border-radius: 0;
+    margin-bottom: 10px;
+}
+
+.hot p {
+    font-size: 12px;
+}
