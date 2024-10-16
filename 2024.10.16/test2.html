@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <script>
+        const box = document.querySelector('.box');
+        box.addEventListener('mouseover', () => {
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('post', 'http://127.0.0.1:9000/server');
+
+            // 请求头必须在open和send中间进行设置
+            // xhr.setRequestHeader('test', 'love')
+
+            // post的方式的参数写在send里面
+            xhr.send('a=100&b=200&c=300');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        box.innerHTML = xhr.response;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

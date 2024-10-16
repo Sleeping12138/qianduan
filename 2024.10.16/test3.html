@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <script>
+        const box = document.querySelector('.box');
+        window.onkeydown = function () {
+            const xhr = new XMLHttpRequest();
+            xhr.open('get', 'http://127.0.0.1:9000/json-server')
+            xhr.responseType = 'json';
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        // 手动
+                        // let ret = JSON.parse(xhr.response);
+                        // box.innerHTML = ret.name;
+                        // console.log(ret);
+                        console.log(xhr.response);
+                        box.innerHTML = xhr.response.name;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
