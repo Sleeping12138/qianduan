@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <script>
+        const box = document.querySelector('.box');
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', 'http://127.0.0.1:9000/delay');
+        xhr.timeout = 2000;
+        xhr.ontimeout = function () {
+            alert('请求异常...')
+        }
+        xhr.onerror = function () {
+            alert('网络异常...')
+        }
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    box.innerHTML = xhr.response;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取消请求</title>
+</head>
+
+<body>
+    <button>发送请求</button>
+    <button>取消请求</button>
+    <script>
+        const btn = document.querySelectorAll('button');
+        let xhr = null;
+
+        btn[0].addEventListener('click', () => {
+            xhr = new XMLHttpRequest();
+            xhr.open('get', 'http://127.0.0.1:9000/delay');
+            xhr.send();
+        })
+
+        btn[1].addEventListener('click', () => {
+            // 取消请求
+            xhr.abort();
+        })
+    </script>
+</body>
+
+</html>

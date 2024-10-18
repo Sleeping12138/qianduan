@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用jQuery发送Ajax请求</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            $.ajax({
+                type: 'post',
+                url: 'http://127.0.0.1:9000/jQuery-post',
+                data: { a: 100, b: 200 },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function () {
+                    console.log('请求错误...');
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

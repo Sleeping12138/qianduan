@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用axios发送ajax请求</title>
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/1.7.2/axios.min.js"></script>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        const btn = document.querySelector('button');
+
+        // 设置默认路径
+        axios.defaults.baseURL = 'http://127.0.0.1:9000';
+        btn.addEventListener('click', () => {
+            axios.get('/axios', {
+                params: {
+                    a: 100,
+                    b: 200
+                },
+                headers: {
+                    name: 'zhangsan',
+                    age: 18
+                }
+            }).then(val => {
+                console.log(val);
+            }).catch(err => {
+                console.log(err);
+            })
+
+        })
+    </script>
+</body>
+
+</html>
