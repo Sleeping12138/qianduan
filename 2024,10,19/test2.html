@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        const btn = document.querySelector('button')
+        btn.addEventListener('click', () => {
+
+            fetch('http://127.0.0.1:9000/fetch', {
+                method: 'get',
+                headers: {
+                    a: 100,
+                    b: 200
+                },
+            }).then(res => {
+                // 响应体的格式：字符串格式
+                return res.text();
+                // 响应体的格式：json格式
+                return res.json();
+            }).then(res => {
+                console.log(res);
+            }).catch(err => {
+                console.log(err);
+            })
+
+        })
+    </script>
+</body>
+
+</html>

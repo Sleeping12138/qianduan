@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        $('button').on('click', () => {
+
+
+            $.ajax({
+                url: 'http://127.0.0.1:9000/test',
+                data: {
+                    a: 100,
+                    b: 200
+                },
+                // jsonp:'' 可以用来修改callback名字（一般不使用）
+
+                jsonpCallback: 'test',
+                dataType: 'jsonp', // 发起jsonp请求
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>
