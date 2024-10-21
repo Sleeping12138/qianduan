@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise初体验</title>
+</head>
+
+<body>
+    <button>点击抽奖</button>
+    <script>
+        function rand(m, n) {
+            return Math.ceil(Math.random() * (n - m + 1)) + m - 1;
+        }
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', () => {
+            // 修改为Promise代码
+            let p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let ret = rand(1, 100);
+                    if (ret <= 30) {
+                        resolve(ret);
+                    } else {
+                        reject(ret);
+                    }
+                }, 1000);
+            })
+            p.then(value => {
+                console.log('恭喜中奖， ' + value);
+            }, reason => {
+                console.log('再接再厉,  ' + reason);
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let p = Promise.resolve(new Promise((resolve, reject) => {
+        //     reject('hello')
+        // }));
+        // console.log(p);
+
+        // let p = Promise.reject(123)
+        // console.log(p);
+
+        let p1 = Promise.reject(1);
+        let p2 = Promise.reject(2);
+        let p3 = Promise.reject(3);
+        let p4 = Promise.reject(4);
+
+        // 如果有错误，值为第一个错误
+        let p = Promise.all([p1, p2, p3, p4]);
+        console.log(p);
+    </script>
+</body>
+
+</html>
