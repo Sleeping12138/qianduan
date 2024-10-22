@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let p1 = Promise.reject('error');
+        // let p2 = Promise.resolve('OK');
+        // let p3 = Promise.resolve('Achieve');
+
+        // let p = Promise.race([p1, p2, p3]);
+
+        // let p = new Promise((resolve, reject) => {
+        //     throw "error";
+        // })
+        // console.log(p);
+
+        // 指定状态之后多个回调函数都会执行
+        // let p = new Promise((resolve, reject) => {
+        //     resolve("ok");
+        // })
+        // p.then(value => {
+        //     console.log(value);
+        // })
+        // p.then(value => {
+        //     console.log(value);
+        // })
+
+        // let p = new Promise((resolve, reject) => {
+        //     resolve('ok');
+        // })
+
+        // let ret = p.then(value => {
+        //     // throw 'error';
+        //     // console.log(value);
+        //     // return value
+        //     return new Promise((resolve, reject) => {
+        //         reject('errpr')
+        //     })
+        // }, reason => {
+        //     console.log(reason);
+        // })
+        // console.log(ret);
+
+        // let p = new Promise((resolve, reject) => {
+        //     resolve('OK');
+        // })
+        // p.then(value => {
+        //     console.log(value);
+        //     return new Promise((resolve, reject) => {
+        //         resolve('hhh');
+        //     })
+        // }).then(value => {
+        //     console.log(value);
+        // })
+
+        // let p = new Promise((resolve, reject) => {
+        //     // resolve('ok');
+        //     resolve('achieve')
+        // })
+
+        // // Promise链的中断
+        // p.then(value => {
+        //     console.log(111);
+        //     return new Promise(() => { });
+        // }).then(value => {
+        //     console.log(222);
+        // }).then(value => {
+        //     console.log(333);
+        // }).catch(reason => {
+        //     console.log(reason);
+        // })
+
+        // 和then类似
+        // async function test() {
+        //     // return 'ok'
+        //     // throw 'MO'
+        //     return new Promise((resolve, reject) => {
+        //         resolve('achieve')
+        //     })
+        // }
+        // let ret = test();
+        // console.log(ret);
+
+        // async function test() {
+        //     let p = new Promise((resolve, reject) => {
+        //         // resolve('hello world')
+        //         reject('error')
+        //     })
+        //     try {
+        //         let ret = await p;
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        // }
+        // test();
+
+        
+
+
+    </script>
+</body>
+
+</html>
