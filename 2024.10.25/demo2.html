@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let p = Promise.resolve('521');
+        // console.log(p);
+
+        // 链式使用
+        // let p = Promise.resolve('521');
+        // p.then(value => {
+        //     console.log(111);
+        // }).then(value => {
+        //     console.log(222);
+        // }).then(value => {
+        //     console.log(333);
+        // }).catch(reason => {
+        //     console.log(reason);
+        // })
+
+        // 使用reject不管怎么样都是失败状态
+        // let temp = new Promise((resolve, reject) => {
+        //     resolve(521);
+        // });
+        // let p = Promise.reject(temp);
+        // console.log(p);
+
+
+        // 多个then都会进行执行
+        // let p = Promise.resolve(521);
+        // p.then(value => {
+        //     console.log(111);
+
+        // });
+        // p.then(value => {
+        //     console.log(222);
+        // })
+        // p.then(value => {
+        //     console.log(333);
+        // })
+
+        // let p = Promise.resolve('hello world');
+        // p.then(value => {
+        //     console.log(111);
+        // }).then(value => {
+        //     console.log(222);
+        //     // 使用pending状态的Promise对象对链进行阻断
+        //     return new Promise(() => { });
+        // }).then(value => {
+        //     console.log(333);
+        // }).then(value => {
+        //     console.log(444);
+        // });
+
+        //async函数的使用
+        // async function test() {
+        //     throw 'hello world';
+        // }
+        // let p = test();
+        // console.log(p);
+
+        //async函数用来进行对异步操作进行操作的
+        // 返回值为Promise对象
+
+        // const fs = require('fs');
+        // const util =require('util');
+
+    </script>
+</body>
+
+</html>
