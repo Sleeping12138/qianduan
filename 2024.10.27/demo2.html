@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.7.2/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>Axios测试</h1>
+    <button>get</button>
+    <button>post</button>
+    <button>patch</button>
+    <button>delete</button>
+    <script>
+        const btn = document.querySelectorAll('button');
+        // btn[0].addEventListener('click', () => {
+        //     // request可以发送get、post、put、delete请求
+        //     axios.request({
+        //         method: 'get',
+        //         url: 'http://localhost:3000/posts/2'
+        //     }).then(value => {
+        //         console.log(value);
+        //     })
+        // })
+
+        // btn[1].addEventListener('click', () => {
+        //     axios.post('http://localhost:3000/comments', {
+        //         "id": "3",
+        //         "text": "another comment about post 3",
+        //         "postId": "2"
+        //     }).then(value => {
+        //         console.log(value);
+        //     })
+        // })
+
+        // btn[0].addEventListener('click', () => {
+        //     axios({
+        //         method: 'get',
+        //         url: 'http://localhost:3000/posts/2'
+        //     }).then(value => {
+        //         console.log(value);
+        //     })
+        // })
+
+        // 默认配置的设置
+        // axios.defaults.method = 'get';
+        // axios.defaults.baseURL = 'http://localhost:3000';
+        // axios.defaults.timeout = 4000;
+        // btn[0].addEventListener('click', () => {
+        //     axios({
+        //         method: 'get',
+        //         url: '/posts'
+        //     }).then(value => {
+        //         console.log(value);
+        //     })
+        // })
+
+        // 创建axios对象
+        const temp = axios.create({
+            timeout: 2000,
+            baseURL: 'http:/127.0.0.1:3000'
+        });
+
+        temp({
+            url: 'comment',
+        })
+    </script>
+</body>
+
+</html>
