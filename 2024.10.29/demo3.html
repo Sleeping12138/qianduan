@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.7.2/axios.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // // 创建一个 Axios 实例
+        // const api = axios.create({
+        //     method: 'get',
+        //     baseURL: 'https://api.example.com',
+        //     timeout: 10000,
+        // });
+        // 创建一个 Axios 实例
+        const apiClient = axios.create({
+            baseURL: 'https://jsonplaceholder.typicode.com', // 使用示例 API
+            timeout: 10000, // 请求超时设置
+        });
+        // 请求拦截器
+        apiClient.interceptors.request.use(
+            config => {
+                // 在请求发送之前做些什么
+                console.log('Request made with:', config);
+
+                // 添加 Authorization 头（如果需要）
+                config.headers['Authorization'] = 'Bearer YOUR_TOKEN';
+
+                return config; // 返回配置对象，继续请求
+            },
+            error => {
+                // 对请求错误做些什么
+                console.error('Request error:', error);
+                return Promise.reject(error); // 返回错误
+            }
+        );
+
+        // 响应拦截器
+        apiClient.interceptors.response.use(
+            response => {
+                // 对响应数据做点什么
+                console.log('Response received:', response.data);
+                return response.data; // 返回响应数据
+            },
+            error => {
+                // 对响应错误做些什么
+                console.error('Response error:', error);
+
+                if (error.response) {
+                    console.error('Error status:', error.response.status);
+                    console.error('Error data:', error.response.data);
+                }
+
+                return Promise.reject(error); // 返回错误
+            }
+        );
+    </script>
+</body>
+
+</html>

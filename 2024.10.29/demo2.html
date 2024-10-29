@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.7.2/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>Axios测试</h1>
+    <button>get</button>
+    <button>post</button>
+    <button>patch</button>
+    <button>delete</button>
+    <script>
+        const btn = document.querySelectorAll('button');
+        btn[0].addEventListener('click', () => {
+            // request可以发送get、post、put、delete请求
+            axios.request({
+                // method: 'get',
+                // url: 'http://localhost:3000/posts/2'
+                {
+                    // `url` is the server URL that will be used for the request
+                    url: '/user',
+
+                    // `method` is the request method to be used when making the request
+                    method: 'get', // default
+
+                    // `baseURL` will be prepended to `url` unless `url` is absolute.
+                    // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
+                    // to methods of that instance.
+                    baseURL: 'https://some-domain.com/api/',
+
+                    // `transformRequest` allows changes to the request data before it is sent to the server
+                    // This is only applicable for request methods 'PUT', 'POST', 'PATCH' and 'DELETE'
+                    // The last function in the array must return a string or an instance of Buffer, ArrayBuffer,
+                    // FormData or Stream
+                    // You may modify the headers object.
+                    transformRequest: [function (data, headers) {
+                        // Do whatever you want to transform the data
+
+                        return data;
+                    }],
+
+                    // `transformResponse` allows changes to the response data to be made before
+                    // it is passed to then/catch
+                    transformResponse: [function (data) {
+                        // Do whatever you want to transform the data
+
+                        return data;
+                    }],
+
+                    // `headers` are custom headers to be sent
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' },
+
+                    // `params` are the URL parameters to be sent with the request
+                    // Must be a plain object or a URLSearchParams object
+                    params: {
+                        ID: 12345
+                    },
+
+                    // `paramsSerializer` is an optional config that allows you to customize serializing `params`. 
+                    paramsSerializer: {
+
+                        //Custom encoder function which sends key/value pairs in an iterative fashion.
+                        encode?: (param: string): string => { /* Do custom operations here and return transformed string */ },
+
+                        // Custom serializer function for the entire parameter. Allows user to mimic pre 1.x behaviour.
+                        serialize?: (params: Record<string, any>, options?: ParamsSerializerOptions),
+
+                        //Configuration for formatting array indexes in the params. 
+                        indexes: false // Three available options: (1) indexes: null (leads to no brackets), (2) (default) indexes: false (leads to empty brackets), (3) indexes: true (leads to brackets with indexes).    
+                    },
+
+                    // `data` is the data to be sent as the request body
+                    // Only applicable for request methods 'PUT', 'POST', 'DELETE , and 'PATCH'
+                    // When no `transformRequest` is set, must be of one of the following types:
+                    // - string, plain object, ArrayBuffer, ArrayBufferView, URLSearchParams
+                    // - Browser only: FormData, File, Blob
+                    // - Node only: Stream, Buffer, FormData (form-data package)
+                    data: {
+                        firstName: 'Fred'
+                    },
+
+                    // syntax alternative to send data into the body
+                    // method post
+                    // only the value is sent, not the key
+                    data: 'Country=Brasil&City=Belo Horizonte',
+
+                    // `timeout` specifies the number of milliseconds before the request times out.
+                    // If the request takes longer than `timeout`, the request will be aborted.
+                    timeout: 1000, // default is `0` (no timeout)
+
+                    // `withCredentials` indicates whether or not cross-site Access-Control requests
+                    // should be made using credentials
+                    withCredentials: false, // default
+
+                    // `adapter` allows custom handling of requests which makes testing easier.
+                    // Return a promise and supply a valid response (see lib/adapters/README.md)
+                    adapter: function (config) {
+                        /* ... */
+                    },
+                    // Also, you can set the name of the built-in adapter, or provide an array with their names
+                    // to choose the first available in the environment
+                    adapter: 'xhr' // 'fetch' | 'http' | ['xhr', 'http', 'fetch']
+
+  // `auth` indicates that HTTP Basic auth should be used, and supplies credentials.
+  // This will set an `Authorization` header, overwriting any existing
+  // `Authorization` custom headers you have set using `headers`.
+  // Please note that only HTTP Basic auth is configurable through this parameter.
+  // For Bearer tokens and such, use `Authorization` custom headers instead.
+  auth: {
+                        username: 'janedoe',
+                        password: 's00pers3cret'
+                    },
+
+                    // `responseType` indicates the type of data that the server will respond with
+                    // options are: 'arraybuffer', 'document', 'json', 'text', 'stream'
+                    //   browser only: 'blob'
+                    responseType: 'json', // default
+
+                }).then(value => {
+                    console.log(value);
+                })
+        })
+
+        // btn[1].addEventListener('click', () => {
+
+        //     axios.post('http://localhost:3000/comments', {
+        //         "id": "3",
+        //         "text": "another comment about post 3",
+        //         "postId": "2"
+        //     }).then(value => {
+        //         console.log(value);
+        //     })
+
+        // })
+
+        // btn[0].addEventListener('click', () => {
+        //     axios({
+        //         method: 'get',
+        //         url: 'http://localhost:3000/posts/2'
+        //     }).then(value => {
+        //         console.log(value);
+        //     })
+        // })
+
+        // 默认配置的设置
+        // axios.defaults.method = 'get';
+        // axios.defaults.baseURL = 'http://localhost:3000';
+        // axios.defaults.timeout = 4000;
+        // btn[0].addEventListener('click', () => {
+        //     axios({
+        //         method: 'get',
+        //         url: '/posts'
+        //     }).then(value => {
+        //         console.log(value);
+        //     })
+        // })
+
+        // 创建axios对象
+        // const temp = axios.create({
+        //     timeout: 2000,
+        //     baseURL: 'http:/127.0.0.1:3000'
+        // });
+
+        // temp({
+        //     url: 'comment',
+        // })
+    </script>
+</body>
+
+</html>

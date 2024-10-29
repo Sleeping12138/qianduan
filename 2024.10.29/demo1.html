@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.7.2/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>Axios测试</h1>
+    <button>get</button>
+    <button>post</button>
+    <button>patch</button>
+    <button>delete</button>
+    <script>
+        const btn = document.querySelectorAll('button');
+        btn[0].addEventListener('click', () => {
+            // 参数为一个对象，其中为一些配置，返回值为Promise对象
+            axios({
+                method: 'get',
+                url: 'http://localhost:3000/posts/2'
+            }).then(value => {
+                console.log(value);
+            })
+        });
+
+        btn[1].addEventListener('click', () => {
+            axios({
+                method: 'post',
+                url: 'http://localhost:3000/posts',
+                data: {
+                    "title": "learn Axios",
+                    "views": 300
+                }
+            }).then(value => {
+                console.log(value);
+            })
+        })
+
+        btn[2].addEventListener('click', () => {
+            axios({
+                method: 'patch',
+                url: 'http://localhost:3000/posts/3',
+                data: {
+                    "views": 400
+                }
+            }).then(value => {
+                console.log(value);
+            })
+        })
+
+        btn[3].addEventListener('click', () => {
+            axios({
+                method: 'delete',
+                url: 'http://localhost:3000/posts/3',
+            }).then(value => {
+                console.log(value);
+            })
+        })
+
+        axios({
+            method: 'GET',
+            url: 'https://jsonplaceholder.typicode.com/posts',
+        }).then(response => {
+            console.log('GET 请求响应数据：', response.data);
+        }).catch(error => {
+            console.error('GET 请求错误：', error.message);
+        });
+
+        axios({
+            method: 'POST',
+            url: 'https://jsonplaceholder.typicode.com/posts',
+            data: {
+                title: 'New Post',
+                body: 'This is a new post.',
+                userId: 1
+            }
+        }).then(response => {
+            console.log('POST 请求响应数据：', response.data);
+        }).catch(error => {
+            console.error('POST 请求错误：', error.message);
+        });
+    </script>
+</body>
+
+</html>
