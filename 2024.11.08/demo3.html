@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.7.2/axios.min.js"></script>
+</head>
+
+<body>
+    <button>点击发送Ajax请求</button>
+    <script>
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', () => {
+            axios({
+                method: 'get',
+                url: 'http://127.0.0.1:9000/test',
+                params: {
+                    a: 100,
+                    b: 200
+                },
+            }).then(value => {
+                console.log(value);
+            }).catch(error => {
+                console.log(error);
+            })
+        })
+    </script>
+</body>
+
+</html>

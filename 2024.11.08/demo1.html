@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点击</button>
+    <button>取消请求</button>
+    <div></div>
+    <script>
+        const btn = document.querySelectorAll('button');
+        const box = document.querySelector('div');
+        const xhr = new XMLHttpRequest();
+
+        btn[0].addEventListener('click', () => {
+            // 使用XMLHttpRequest发送Ajax请求
+            xhr.open('get', 'http://127.0.0.1:9000/test?t=' + Date.now());
+            // 设置响应体类型
+            // xhr.responseType = 'json';
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        box.innerHTML = xhr.response;
+                    }
+                }
+            }
+        })
+
+        btn[1].addEventListener('click', () => {
+            // 取消请求
+            xhr.abort();
+        })
+    </script>
+</body>
+
+</html>

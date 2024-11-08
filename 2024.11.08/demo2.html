@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button>点击发送Ajax请求</button>
+    <script>
+        const btn = document.querySelector('button');
+        // btn.addEventListener('click', () => {
+        //     // 路径 + 查询字符串 + 回调函数 + 返回值类型
+        //     $.get('http://127.0.0.1:9000/test', { a: 100, b: 200 }, function (data) {
+        //         console.log(data);
+        //     }, 'json');
+        // })
+
+        btn.addEventListener('click', () => {
+            $.ajax({
+                type: 'get',
+                url: 'http://127.0.0.1:9000/test',
+                data: {
+                    a: 100,
+                    b: 200
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
