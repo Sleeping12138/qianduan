@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+
+        // let p1 = Promise.resolve('hello world');
+        // let p2 = Promise.reject('error');
+        // let ret = Promise.allSettled([p1, p2]);
+        // console.log(ret);
+
+
+        let str = 'hello world,hello java,hello javascript';
+        let reg = /hello \w+/g;
+        let ret = str.matchAll(reg);
+        for (const element of ret) {
+            console.log(element);
+        }
+    </script> -->
+    <!-- <button class="btn">点击</button>
+    <script type="module" src="./demo1.js"></script> -->
+    <script>
+        class People {
+
+        }
+        class Student extends People {
+            name;
+            eat() {
+
+            }
+        }
+        let stu = new Student();
+        // true
+        console.log(Object.hasOwn(stu, 'name'));
+        // false
+        console.log(Object.hasOwn(stu, 'eat'));
+    </script>
+</body>
+
+</html>
