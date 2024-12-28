@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <!-- #region -->
+    <!-- 提供Vue模板 + 标记位置 -->
+    <!-- <div id="box">
+        <h1>hello {{name.toUpperCase()}},{{Date.now()}}</h1>
+    </div>
+    <script>
+        const x = new Vue({
+            el: '#box',
+            data: {
+                name: 'java'
+            }
+        });
+    </script> -->
+    <!-- <div id="box">
+        <h1>welcome to {{name}}</h1>
+        <a v-bind:href="url" x="hello">点击进入{{button.name}}</a>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data: {
+                name: 'Vue',
+                url: 'http://www.baidu.com',
+                button: {
+                    name: '百度',
+                }
+            }
+        });
+    </script> -->
+    <!-- #endregion -->
+    <!-- <div id="box">
+        单向绑定<input type="text" v-bind:value="name"><br>
+        双向绑定<input type="text" v-model:value="name"><br>
+        <h1 v-model:x="name">name</h1>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data: {
+                name: 'hello world'
+            }
+        })
+    </script> -->
+
+
+    <!-- <div id="box">
+        <h1>hello {{name}}</h1>
+    </div>
+    <script> -->
+    <!-- // new Vue({
+        //     el: '#box',
+        //     data: {
+        //         name: 'java'
+        //     }
+        // });
+
+        // const v = new Vue({
+        //     // data: {
+        //     //     name: 'world'
+        //     // }
+
+        //     // 函数式
+        //     data() {
+        //         return {
+        //             name: 'world'
+        //         }
+        //     }
+        // })
+        // console.log(v);
+        // v.$mount('#box'); -->
+
+
+    <!-- </script> -->
+
+    <!-- <div id="box"> -->
+    <!-- 只要是Vue身上的数据都可以进行绑定 -->
+    <!-- <h1>hello {{name}}</h1>
+        <h1>hello {{$createElement}}</h1>
+        <h1>hello {{$mount}}</h1>
+    </div>
+    <script>
+        const vm = new Vue({
+            data() {
+                return {
+                    name: 'world'
+                }
+            }
+        })
+        vm.$mount('#box');
+        console.log(vm);
+    </script> -->
+
+    <script>
+        let p = {
+            name: 'zhangsan',
+            age: 18,
+            // sex: 'male'
+        }
+        Object.defineProperty(p, 'sex', {
+            value: 'male',
+            enumerable: true,
+            writable: true,
+            configurable: true
+        })
+        console.log(p);
+        console.log(Object.keys(p));
+    </script>
+</body>
+
+</html>
