@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        * {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- #region -->
+    <!-- <div id="box">
+        <h1>hello {{name}}</h1>
+    </div>
+    <script>
+        // new Vue({
+        //     el: '#box',
+        //     data: {
+        //         name: 'Vue',
+        //         url: 'http://www.baidu.com'
+        //     }
+        // })
+
+        const vm = new Vue({
+            el: '#box',
+            data: function () {
+                return {
+                    name: 'Vue',
+                }
+            }
+        })
+    </script> -->
+    <!-- 
+    <script>
+        let number = 18;
+        let p = {
+            name: 'zhangsan',
+        }
+        Object.defineProperty(p, 'age', {
+            // value: 'male',
+            // enumerable: true,
+            // writable: true,
+            // configurable: true,
+
+            get() {
+                console.log('getter...');
+                return number;
+            },
+
+            set(value) {
+                console.log('setter...');
+                number = value;
+            }
+
+        })
+        console.log(p);
+    </script> -->
+
+
+    <!-- <script>
+        let p1 = { x: 100 };
+        let p2 = { y: 200 };
+
+        Object.defineProperty(p2, 'x', {
+            get() {
+                return p1.x;
+            },
+            set(value) {
+                p1.x = value;
+            }
+        })
+    </script> -->
+
+
+    <!-- <div id="box">
+        <button @click="temp($event,5)">点击</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            methods: {
+                temp(event, n) {
+                    for (let i = 0; i < n; i++) {
+                        console.log('hello world');
+                        console.log(event);
+                    }
+                }
+            },
+        });
+    </script> -->
+    <!-- 
+    <div id="box">
+        <button v-on:click="btn($event,5)">点击</button>
+    </div>
+    <script>
+        const vw = new Vue({
+            methods: {
+                btn(event, n) {
+                    for (let i = 0; i < n; i++) {
+                        console.log('hello world');
+                    }
+                }
+            },
+        })
+        vw.$mount('#box');
+    </script> -->
+    <!-- #endregion -->
+
+    <!-- <div id="box">
+        <h1>hello {{name}}</h1>
+        <button @click="clickButton">点击事件</button><br>
+        <a href="http://www.baidu.com" @click.prevent="url">跳转百度</a>
+        <div @click.capture="temp(1)">
+            <button @click.stop="temp(2)">测试冒泡</button>
+        </div>
+
+        <button @click.once="one">只会触发一次</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    name: 'Vue',
+                }
+            },
+            methods: {
+                clickButton() {
+                    alert('hello world')
+                },
+                url() {
+                    alert('跳转百度...')
+                },
+                temp(n) {
+                    console.log(n);
+                },
+                one() {
+                    console.log('only one');
+                }
+            },
+        });
+    </script> -->
+
+    <!-- <div id="box">
+        <input type="text" placeholder="请输入数据" @keydown.huiche="key">
+    </div>
+    <script>
+        Vue.config.keyCodes.huiche = 13;
+        new Vue({
+            el: '#box',
+            methods: {
+                key(event) {
+                    console.log(event.target.value);
+                }
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        姓：<input type="text" v-model="firstname"><br><br>
+        名：<input type="text" v-model="lastname"><br><br>
+        全名：<span>{{fullname()}}</span>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    firstname: '张',
+                    lastname: '三'
+                }
+            },
+            methods: {
+                fullname() {
+                    // 数据过长如何将数据计算完毕之后再放入模板中
+                    return this.firstname + "-" + this.lastname;
+                }
+            },
+        })
+    </script> -->
+
+
+    <!-- 计算属性 -->
+    <!-- <div id="box">
+        姓：<input type="text" v-model="firstname"><br><br>
+        名：<input type="text" v-model="lastname"><br><br>
+        全名：<span>{{fullname}}</span>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data() {
+                return {
+                    firstname: '张',
+                    lastname: '三'
+                }
+            },
+            computed: {
+                // 底层就是通过Object.defineProperty实现的 
+                fullname: {
+                    get() {
+                        // 开始会计算好放在vm实例对象身上
+                        return this.firstname + "-" + this.lastname;
+                    },
+                    set(value) {
+                        let arr = value.split('-');
+                        this.firstname = arr[0];
+                        this.lastname = arr[1];
+                    }
+                }
+            }
+        });
+    </script> -->
+
+    <div id="box">
+        <h1>今天天气很{{weather}}</h1><br>
+        <button @click="change">切换天气</button>
+        <div>a的值是：{{number.a}}</div>
+        <button @click="adda">点击a+1</button>
+        <div>b的值是：{{number.b}}</div>
+        <button @click="addb">点击b+1</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data() {
+                return {
+                    isHot: true,
+                    number: {
+                        a: 1,
+                        b: 1
+                    }
+                }
+            },
+            methods: {
+                change() {
+                    this.isHot = !this.isHot;
+                },
+                adda() {
+                    this.number.a++;
+                },
+                addb() {
+                    this.number.b++;
+                }
+            },
+            computed: {
+                weather: {
+                    get() {
+                        return this.isHot ? '炎热' : '凉爽'
+                    }
+                }
+            },
+            // watch: {
+            //     isHot(newValue, oldValue) {
+            //         console.log(newValue, oldValue);
+            //     }
+            // }
+        });
+        vm.$watch('isHot', function (newValue, oldValue) {
+            console.log(newValue, oldValue);
+        })
+    </script>
+</body>
+
+</html>
