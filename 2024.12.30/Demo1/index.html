@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        * {
+            margin: 10px;
+        }
+
+        .sty1 {
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+        }
+
+        .sty2 {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- #region -->
+    <!-- <script> -->
+    <!-- // let peopleSex = 'male';
+        // let p = {
+        //     name: 'zhangsan',
+        //     age: 18
+        // }
+
+        // Object.defineProperty(p, 'sex', {
+        //     // 当访问该属性的时候会调用get（）方法
+        //     get() {
+        //         return peopleSex;
+        //     },
+        //     // 修改该属性的时候会调用set（）方法
+        //     set(value) {
+        //         peopleSex = value;
+        //     }
+        // })
+
+        // let p1 = { x: 100 };
+        // let p2 = { y: 200 };
+
+        // Object.defineProperty(p2, 'x', {
+        //     get() {
+        //         return p1.x;
+        //     },
+        //     set(value) {
+        //         p1.x = value;
+        //     }
+        // }) -->
+
+
+    <!-- // </script> -->
+
+    <!-- <div id="box">
+        当点击了按钮就会调用btn函数
+        <button v-on:click="btn($event,5)">点击按钮</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            methods: {
+                btn(event, n) {
+                    for (let i = 0; i < n; i++) {
+                        console.log('hello world...');
+                    }
+                }
+            },
+        });
+    </script> -->
+
+    <!-- <div id="box">
+        取消默认事件
+        <a href="http://www.baidu.com" @click.prevent="clickA">点击进行百度</a>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            methods: {
+                clickA() {
+                    alert('进入百度...')
+                }
+            },
+        });
+    </script> -->
+
+    <!-- <div id="box">
+        请输入: <input type="text" placeholder="请输入内容" @keyup.huiche="temp">
+    </div>
+    <script>
+
+        Vue.config.keyCodes.huiche = 13;
+
+        new Vue({
+            el: '#box',
+            methods: {
+                temp(event) {
+                    console.log(event.target.value);
+                }
+            },
+        });
+    </script> -->
+
+    <!-- <div id="box">
+        姓: <input type="text" v-model:value="firstname"><br>
+        名: <input type="text" v-model:value="lastname"><br>
+        全名：{{fullname}}
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    firstname: '张',
+                    lastname: '三',
+                    fullname: 'xxx'
+                }
+            },
+            // computed: {
+            //     fullname: {
+            //         get() {
+            //             return this.firstname + "-" + this.lastname;
+            //         },
+            //         set(value) {
+
+            //         }
+            //     }
+            // }
+            watch: {
+                firstname(val) {
+                    setTimeout(() => {
+                        return this.fullname = val + this.lastname;
+                    }, 2000)
+                },
+                lastname(val) {
+                    return this.fullname = this.firstname + val;
+                }
+            }
+        });
+    </script> -->
+
+    <!-- <div id="box">
+        姓: <input type="text" v-model:value="firstname"><br>
+        名: <input type="text" v-model:value="lastname"><br>
+        全名：{{fullname}}
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    firstname: '张',
+                    lastname: '三'
+                }
+            },
+            computed: {
+                fullname() {
+                    return this.firstname + "-" + this.lastname;
+                }
+            }
+        });
+    </script> -->
+
+    <!-- <div id="box">
+        <h2>今天天气很{{isHot?'炎热':'寒冷'}}</h2>
+        <button @click="change">点击按钮</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data() {
+                return {
+                    isHot: true,
+                    number: {
+                        a: 1,
+                        b: 1
+                    }
+                }
+            },
+            methods: {
+                change() {
+                    this.isHot = !this.isHot;
+                }
+            },
+            watch: {
+                isHot(newValue, oldValue) {
+                    console.log(newValue, oldValue);
+                }
+            }
+        }); -->
+    <!-- // vm.$watch('number', {
+        //     // 进行深度监测
+        //     deep: true,
+        //     handler(newValue, oldValue) {
+        //         // 当监视的数据发送改变的时候调用
+        //         console.log(newValue, oldValue);
+        //     }
+        // })
+    // </script> -->
+
+    <!-- <div id="box">
+        对class进行动态设置
+        <div :class="style" @click="temp">test</div>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    style: '',
+                }
+            },
+            methods: {
+                temp() {
+                    this.style = 'sty1';
+                },
+            },
+        });
+    </script> -->
+    <!-- 
+    <div id="box">
+        <div :style="style">test</div>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    style: {
+                        fontSize: 40 + 'px',
+                        color: 'orange',
+
+                    }
+                }
+            },
+        });
+    </script> -->
+
+    <!-- <div id="box">
+        <div>{{number}}</div>
+        <button @click="number++">点击按钮</button>
+        <template v-if="number===2">
+            <div>hello world</div>
+            <div>hello java</div>
+            <div>hello python</div>
+        </template>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    number: 0,
+                }
+            },
+        })
+    </script> -->
+    <!-- #endregion -->
+    <!-- 
+    <div id="box">
+        <button @click="btn">点击添加人物</button>
+        <ul>
+            <li v-for="(p,index) of person" :key="index">
+                {{p.name}}-{{p.age}}
+                <input type="text">
+            </li>
+        </ul> -->
+
+    <!-- <ul> -->
+    <!-- 先是value后是key -->
+    <!-- <li v-for="(value,key) in obj">
+                {{key}}-{{value}}
+            </li>
+        </ul> -->
+    <!-- </div>
+
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    // 数组
+                    person: [
+                        { name: 'zhangsan', age: 18 },
+                        { name: 'lisi', age: 19 },
+                        { name: 'wangwu', age: 20 }
+                    ],
+                    // 对象
+                    // obj: {
+                    //     name: 'zhaoliu',
+                    //     age: 20,
+                    //     sex: 'male'
+                    // }
+                }
+            },
+            methods: {
+                btn() {
+                    const p = { name: 'zhaoliu', age: 30 };
+                    this.person.unshift(p);
+                }
+            },
+        })
+    </script> -->
+
+    <h1>人员列表</h1>
+    <div id="box">
+        <input type="text" placeholder="请输入内容" v-model="keyWord">
+        <ul>
+            <li v-for="(p,index) of fulPeople" :key="index">
+                {{p.name}}-{{p.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    keyWord: '',
+                    people: [
+                        { name: '马冬梅', age: 18 },
+                        { name: '周冬雨', age: 18 },
+                        { name: '周杰伦', age: 18 },
+                        { name: '艾伦', age: 18 },
+                    ],
+                }
+            },
+            // watch: {
+            //     keyWord: {
+            //         immediate: true,
+            //         handler(newValue) {
+            //             this.fulPeople = this.people.filter((item) => {
+            //                 return item.name.indexOf(newValue) >= 0;
+            //             })
+            //         }
+            //     }
+            // }
+            computed: {
+                fulPeople() {
+                    return this.people.filter((item) => {
+                        return item.name.indexOf(this.keyWord) >= 0;
+                    })
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
