@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <script src="./dayjs.min.js"></script>
+    <style>
+        * {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="box">
+        <button @click="btn">点击按钮</button>
+        <div v-show="temp.hello">{{temp.hello}}</div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data() {
+                return {
+                    temp: {
+
+                    }
+                }
+            },
+            methods: {
+                btn() {
+                    this.$set(this.temp, 'hello', 'hello world')
+                }
+            },
+        });
+    </script> -->
+
+    <!-- <div id="box">
+        //插值语法 + v-bind
+        <h2>现在的时间是：{{timeFormat}}</h2>
+        <div :class="temp | getFinal">hello world</div>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    time: '1735696995777',
+                    temp: 'hello world'
+                }
+            },
+            computed: {
+                timeFormat() {
+                    return dayjs().format('YYYY-MM-DD HH:mm:ss');
+                }
+            } -->
+    <!-- // filters: {
+            //     timeFormat(value) {
+            //         return dayjs(value).format('YYYY-MM-DD HH:mm:ss');
+            //     },
+            //     getFinal(value) {
+            //         return value.slice(0, 4);
+            //     }
+    //         // }
+    //     })
+    // </script> -->
+
+    <!-- <div id="box">
+        <div v-text="text">wohiafohwe</div>
+        <div>第二个:{{text}}</div>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    text: 'hello world'
+                }
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <div v-html="text">wjoiahgo</div>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    text: '<h1>hello world</h1>'
+                }
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <div v-once>{{number}}</div>
+        <div v-pre>{{number}}</div>
+        <button @click="number++">点击number++</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    number: 1,
+                }
+            },
+        });
+    </script> -->
+    <!-- 
+    <div id="box">
+        <div v-big="number"></div>
+        <button @click="number++">点击number++</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    number: 1.
+                }
+            },
+            directives: {
+                big(element, bending) {
+                    element.innerText = bending.value * 10;
+                }
+            }
+        });
+    </script> -->
+
+    <!-- <div id="box">
+        <div v-big="n"></div>
+        <button @click="n++">n++</button>
+        <input type="text" v-fbind="n">
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    n: 1,
+                }
+            },
+            directives: {
+                big(element, binding) {
+                    element.innerText = binding.value * 10;
+                },
+                // 使用对象的方式可以更加细化时间段
+                fbind: {
+                    bind(element, binding) {
+                        element.value = binding.value * 10;
+                    },
+                    inserted(element, binding) {
+                        element.focus();
+                    },
+                    update(element, binding) {
+                        element.value = binding.value * 10;
+                    }
+                }
+            }
+        });
+    </script> -->
+
+    <div id="box">
+        <h2 :style="{opacity: opacity}">hello Vue</h2>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data() {
+                return {
+                    opacity: 1,
+                }
+            },
+            // 当Vue挂载完毕之后就会执行
+            mounted() {
+                setInterval(() => {
+                    vm.opacity -= 0.01;
+                    if (vm.opacity <= 0) vm.opacity = 1;
+                }, 25)
+            },
+        });
+
+
+    </script>
+</body>
+
+</html>
