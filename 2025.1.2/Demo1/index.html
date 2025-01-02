@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dayjs.min.js"></script>
+    <script src="./vue.js"></script>
+    <style>
+        * {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="box">
+        <div>{{time | timeFormat | getFront}}</div>
+    </div>
+    <script>
+
+
+        // 全局过滤器的设置
+        Vue.filter('getFront', function (value) {
+            return value.slice(0, 4);
+        });
+
+
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    time: new Date(),
+                }
+            },
+            filters: {
+                timeFormat(value) {
+                    return dayjs(value).format('YYYY-MM-DD HH:mm:ss');
+                },
+            }
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <h1>{{text}}</h1>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    text: 'hello world'
+                }
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        此条语句不会被Vue所解析
+        <div v-pre>{{n}}</div>
+        <div>当前的n为：{{n}}</div>
+        <button @click="n++">点击按钮n++</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    n: 1,
+                }
+            },
+        });
+    </script> -->
+
+
+    <!-- <div id="box">
+        <div>{{n}}</div>
+        <div v-big-number="n"></div>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    n: 1,
+                }
+            },
+
+
+            directives: {
+                'big-number'(element, binding) {
+                    element.innerText = binding.value * 100;
+                }
+            }
+
+        });
+    </script> -->
+
+    <!-- <div id="box">
+        <h1 :style="{opacity:opacity}">hello Vue</h1>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    opacity: 1,
+                }
+            },
+            // 该Vue声明周期函数会在元素挂载完成之后自动调用
+            mounted() {
+                setInterval(() => {
+                    this.opacity -= 0.01;
+                    if (this.opacity <= 0) this.opacity = 1;
+                }, 20)
+            },
+        })
+    </script> -->
+    <!-- 
+    <div id="box">
+        <h1 :style="{opacity}">hello Vue</h1>
+        <button @click="btn">关闭事件</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    opacity: 1,
+                }
+            },
+            methods: {
+                btn() {
+                    this.$destroy();
+                }
+            },
+            mounted() {
+                this.timer = setInterval(() => {
+                    this.opacity -= 0.01;
+                    if (this.opacity <= 0) this.opacity = 1;
+                }, 25)
+            },
+            beforeDestroy() {
+                clearInterval(timer);
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <h2>{{n}}</h2>
+        <button @click="btn">点击n++</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data() {
+                return {
+                    n: 1,
+                }
+            },
+            methods: {
+                btn() {
+                    this.n++;
+                }
+            },
+            beforeCreate() {
+                console.log('beforeCreate');
+            },
+            created() {
+                console.log('created');
+                debugger
+            },
+        })
+    </script> -->
+
+    <!-- 组件的使用 -->
+    <div id="box">
+        <h1>{{text}}</h1>
+        <school></school>
+        <hello></hello>
+        <hr>
+        <student-id></student-id>
+        <hello />
+
+    </div>
+    <script>
+
+        // 创建组件,使用Vue.extend
+        const school = Vue.extend({
+            template: `
+            <div>
+                <div>{{name}}</div>
+                <div>{{address}}</div>
+                <button @click="btn">点击按钮</button>
+            </div>`,
+            data() {
+                return {
+                    name: 'javascript班级',
+                    address: 'hello'
+                }
+            },
+            methods: {
+                btn() {
+                    alert(this.name + " " + this.address);
+                }
+            },
+        });
+
+        const student = Vue.extend({
+            template: `
+                <div>
+                    <div>{{name}}</div>
+                    <div>{{age}}</div>
+                </div>
+            `,
+            data() {
+                return {
+                    name: 'zhangsan',
+                    age: 18
+                }
+            },
+        })
+
+        const hello = Vue.extend({
+            template: `
+            <div>
+                <div>{{text}}</div>
+            </div>
+            `,
+            data() {
+                return {
+                    text: 'hello the world',
+                }
+            },
+        })
+
+        Vue.component('hello', hello);
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    text: 'hello world',
+                }
+            },
+            components: {
+                'student-id': student,
+                school
+            }
+        })
+    </script>
+</body>
+
+</html>
