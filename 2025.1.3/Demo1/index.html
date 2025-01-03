@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <script src="./dayjs.min.js"></script>
+    <style>
+        * {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="box">
+        <h1 :style="{opacity:opacity}">hello Vue</h1>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    opacity: 1,
+                }
+            },
+            mounted() {
+                this.timer = setInterval(() => {
+                    this.opacity -= 0.01;
+                    if (this.opacity <= 0) this.opacity = 1;
+                }, 25);
+            },
+
+            // 在销毁Vue实例之前做的一些工作
+            beforeDestroy() {
+                clearInterval(this.timer);
+            },
+
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <school></school>
+        <school/>
+        <hr>
+    </div>
+    <script>
+        const school = Vue.extend({
+            // 定义组件模板
+            template: `
+            <div>
+                <h2>{{name}}</h2>
+                <h2 v-show="flag">{{age}}</h2>
+                <button @click="btn">点击隐藏年龄</button>
+            </div>
+        `,
+            // 组件中的数据
+            data() {
+                return {
+                    name: 'zhangsan',
+                    age: 18,
+                    flag: true
+                }
+            },
+            methods: {
+                btn() {
+                    this.flag = false;
+                }
+            },
+        })
+
+        // 全局注册组件
+        Vue.component('school', school);
+
+        new Vue({
+            el: '#box',
+            // 局部注册组件
+            components: {
+                school: school,
+            }
+        })
+    </script> -->
+
+
+    <div id="box">
+        <school></school>
+    </div>
+    <script>
+        const student = Vue.extend({
+            template: `
+            <div>
+                <h2>{{name}}</h2>
+                <h2 v-show="flag">{{age}}</h2>
+                <button @click="btn">点击隐藏年龄</button>
+            </div>
+        `,
+            data() {
+                return {
+                    name: 'zhangsan',
+                    age: 18,
+                    flag: true
+                }
+            },
+            methods: {
+                btn() {
+                    this.flag = false;
+                }
+            },
+        })
+        const school = Vue.extend({
+            template: `
+            <div>
+                <h1>welcome to Vue</h1>
+                <student></student>
+            </div>
+            `,
+            // 在父组件中定义子组件
+            components: {
+                student: student,
+            }
+        })
+        new Vue({
+            el: '#box',
+            components: {
+                school,
+            }
+        });
+
+        console.log(Vue.prototype === VueComponent.prototype.__proto__);
+    </script>
+</body>
+
+</html>
