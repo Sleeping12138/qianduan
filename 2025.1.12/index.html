@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <script src="./demo1.js"></script>
+    <script src="./dayjs.min.js"></script>
+    <style>
+        * {
+            margin: 10px;
+        }
+
+        .type {
+            color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- #region -->
+    <!-- <div id="box">
+        <h1>{{name}}</h1>
+        <h1>{{age}}</h1>
+
+        <a v-bind:href="url">点击进入百度</a><br>
+        <a :href="url">点击进入百度</a>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    name: 'zhangsan',
+                    age: 18,
+                    url: 'https:/www.baidu.com'
+                }
+            },
+        })
+    </script> -->
+
+
+    <!-- <div id="box">
+        <a :href="url">点击进入百度</a><br>
+        <input type="text" v-model="val">
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    url: 'https:/www.baidu.com',
+                    val: ''
+                }
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <h1>{{a}}</h1>
+    </div>
+    <script>
+        const vm = new Vue({
+            data() {
+                return {
+                    a: 100
+                }
+            }
+        });
+        vm.$mount('#box');
+    </script> -->
+
+    <!-- <div id="box">
+        <h1>{{name}}</h1>
+        <button @click="btn($event)">点我获取数据</button>
+         <button v-on:click="btn">点我获取数据</button> -->
+    <!--</div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    name: 'zhangsan'
+                }
+            },
+            methods: {
+                btn(event) {
+                    console.log(event.target);
+                }
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <input type="text" @keydown.enter="temp">
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            methods: {
+                temp() {
+                    console.log(event.target.value);
+                }
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <h1>hello world</h1>
+        姓<input type="text" v-model="xing"><br>
+        名<input type="text" v-model="ming"><br>
+        全名：{{fullname}}
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    xing: '',
+                    ming: '',
+                }
+            },
+            computed: {
+                fullname() {
+                    return this.xing + '-' + this.ming;
+                }
+            }
+        })
+    </script> -->
+
+    <!-- 数据监视 -->
+    <!-- <div id="box">
+        <h1>今天天气{{isHot?'warm':'cold'}}</h1>
+        <button @click="change">点击切换天气</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data() {
+                return {
+                    isHot: true
+                }
+            },
+            methods: {
+                change() {
+                    this.isHot = !this.isHot;
+                }
+            },
+            watch: {
+                isHot: {
+                    immediate: true,
+                    handler(newValue, oldValue) {
+                        console.log(newValue, oldValue);
+                    }
+                }
+            }
+        })
+        vm.$watch('isHot', {
+            immediate: true,
+            handler(newValue, oldValue) {
+                console.log(newValue, oldValue);
+            }
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <h1>{{hello}}</h1>
+        <button @click="btn">点击</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data() {
+                return {
+                    hello: {},
+                    array: [1, 2, 3]
+                }
+            },
+            methods: {
+                btn() {
+                    // 底层进行了封装
+                    this.array.push(4);
+                    this.array.push(5);
+                    console.log(this.array);
+                }
+            },
+        })
+
+    </script> -->
+    <!-- #endregion -->
+
+    <!-- <div id="box">
+        <h1 :class="style">hello world</h1>
+        <h1 :style="style">hello world</h1>
+        <button @click="btn">click</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    style: ''
+                }
+            },
+            methods: {
+                btn() {
+                    this.style = {
+                        color: 'red'
+                    }
+                }
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box"> -->
+    <!-- <h1 v-show="temp">hello world</h1> -->
+    <!-- <h1 v-if="n<5">hello world</h1>
+        <h1 v-else-if="n<10">hello java</h1>
+        <h1 v-else>hello python</h1> -->
+    <!-- <template v-show="n>5">
+            <h1>hello</h1>
+            <h1>the</h1>
+            <h1>world</h1>
+        </template>
+        <button @click="btn">click</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    temp: false,
+                    n: 0
+                }
+            },
+            methods: {
+                btn() {
+                    this.n++;
+                    console.log(this.n);
+                }
+            },
+        })
+    </script> -->
+
+
+    <!-- <div id="box">
+        <ul>
+            <li v-for="(abc,index) of p" :key="index">
+                {{abc.name}}-{{abc.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    p: [
+                        { name: 'zhangsan', age: 18 },
+                        { name: 'lisi', age: 18 },
+                        { name: 'wangwu', age: 18 }
+                    ]
+                }
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <input type="text" v-model.number="n">
+        性别：<input type="radio" v-model:name="sex" value="male">
+        <input type="radio" v-model:name="sex" value="female"><br>
+
+        爱好：<input type="checkbox" v-model:name="hobby" value="football">
+        <input type="checkbox" v-model:name="hobby" value="basketball">
+        <input type="checkbox" v-model:name="hobby" value="volleyball">
+
+        地区：
+        <select v-model="site">
+            <option value="beijing">北京</option>
+            <option value="hangzhou">杭州</option>
+        </select>
+
+        注册：<input type="checkbox" v-model="finish">
+
+
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    sex: '',
+                    hobby: [],
+                    site: '',
+                    finish: '',
+                    n: ''
+                }
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <h1>{{time | timeFormat | ss}}</h1>
+    </div>
+    <script>
+        // 全局注册过滤器
+        Vue.filter('timeFormat', function (value) {
+            return dayjs(value).format('YYYY-MM-DD HH:mm:ss')
+        })
+
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    time: Date.now()
+                }
+            },
+            filters: {
+
+                ss(value) {
+                    return value.slice(0, 4)
+                }
+            }
+
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <h1 v-text="T"></h1>
+        <h2 v-html="S"></h2>
+        <h1 v-pre>{{name}}</h1>
+        <h3 v-once>{{n}}</h3>
+        <button @click="n++">click</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    T: 'hello world',
+                    S: '<div>hello world</div>',
+                    name: 'zhangsan',
+                    n: 0
+                }
+            },
+            methods: {
+
+            },
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <h1 v-big-hello="n"></h1>
+    </div>
+    <script>
+
+        Vue.directive('big', function (element, binding) {
+            element.innerText = binding.value * 100;
+        })
+
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    n: 1
+                }
+            },
+            // 自定义指令
+            directives: {
+                'big-hello'(element, binding) {
+                    element.innerText = binding.value * 100;
+                    console.log(this);
+                }
+            }
+        })
+    </script> -->
+
+    <!-- <div id="box">
+        <h1 :style="type">hello world</h1>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    type: {
+                        opacity: 1
+                    }
+                }
+            },
+            mounted() {
+                setInterval(() => {
+                    this.type.opacity -= 0.01;
+                    if (this.type.opacity <= 0) this.type.opacity = 1;
+                }, 20)
+            },
+        })
+    </script> -->
+
+    <div id="box">
+        <Student></Student>
+    </div>
+    <script>
+        const Student = Vue.extend({
+            name: 'Student',
+            template: `
+                <div>
+                    <h1>hello world</h1>
+                    <div>{{n}}</div>
+                    <button @click="btn">点击</button>
+                </div>
+            `,
+            data() {
+                return {
+                    n: 100
+                }
+            },
+            methods: {
+                btn() {
+                    this.n++;
+                }
+            },
+        })
+        new Vue({
+            el: '#box',
+            components: { Student }
+        })
+    </script>
+</body>
+
+</html>
