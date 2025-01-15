@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hello world</h1>
+    <button onclick="btn">点击设置localStorage</button>
+    <script>
+        function btn() {
+            // 增
+            localStorage.setItem('zhangsan', 18);
+            // 查
+            localStorage.getItem('zhangsan');
+            // 删
+            localStorage.removeItem('zhangsan');
+            // 清空
+            localStorage.clear();
+        }
+    </script>
+</body>
+
+</html>

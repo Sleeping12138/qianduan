@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>重新开始一局游戏</button><br>
+    <span>请输入要猜的数字：</span> <input type="text"> <button>猜</button><br>
+    <span>已经猜的次数:</span> <span id="number"></span><br>
+    <div>结果:</div> <span id="result"></span> <br>
+    <script>
+        let ret = Math.floor(Math.random() * 100);
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', () => {
+            // 重新开始游戏
+
+        })
+    </script>
+</body>
+
+</html>
