@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        * {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- vue的基本使用 -->
+    <!-- <div id="box">
+        <h1>{{ name }}</h1>
+        <h2>age:{{ age }}</h2>
+        <a v-bind:href="url">点击跳转百度</a><br>
+        <input v-model="text" type="text">
+    </div>
+    <script>
+        const vm = new Vue({
+            // el: '#box',
+            data() {
+                return {
+                    name: 'zhangsan',
+                    age: 20,
+                    url: 'http://www.baidu.com',
+                    text: ''
+                }
+            },
+        })
+        vm.$mount('#box'); -->
+    <!-- </script> -->
+
+    <!-- 
+        // let p = {
+        //     name: 'zhangsan',
+        //     age: 19
+        // }
+        // console.log(p);
+
+        // let temp = 'female'
+
+        // Object.defineProperty(p, 'sex', {
+        //     // value: 'male',
+        //     // enumerable: true,
+        //     // writable: true,
+        //     // configurable: true,
+
+        //     get() {
+        //         return temp;
+        //     },
+        //     set(value) {
+        //         temp = value;
+        //     }
+        // })
+
+        // console.log(p); -->
+
+    <!-- <div id="box">
+        <h1>{{n}}</h1>
+        <button @click.once="btn($event,5)">点击n++</button>
+        <input type="text" @keyup.enter="keyboard" ref="f" v-model="val">
+        <button @click="getFocus()">点击获取焦点</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    n: 0,
+                    val: '',
+                }
+            },
+            methods: {
+                btn(event, num) {
+                    for (let i = 0; i < num; i++) {
+                        this.n++;
+                        console.log('hello');
+                    }
+                },
+                getFocus() {
+                    console.log('asf');
+                    this.$refs.f.focus();
+                },
+                keyboard() {
+                    console.log(this.val);
+                    this.val = ''
+                }
+            },
+        })
+    </script> -->
+
+    <!-- 计算属性 -->
+    <!-- <div id="box"> -->
+    <!-- <h1>{{ allName }}</h1>
+        <input type="text" v-model="head">
+        <input type="text" v-model="tail"> -->
+
+    <!-- <h1>{{ n }}</h1>
+        <button @click="n++">点击n++</button>
+    </div> -->
+    <!-- <script>
+        const vm = new Vue({
+            el: '#box',
+            data() {
+                return {
+                    n: 0
+                }
+            },
+            computed: {
+                allName() {
+                    return this.head + this.tail
+                }
+            },
+            watch: {
+                n(newValue, oldValue) {
+                    console.log(oldValue + "---" + newValue);
+                }
+            }
+        })
+         vm.$watch('n', {
+            deep:true,
+            handler(newValue, oldValue) {
+                console.log(oldValue + "-" + newValue);
+            }
+        })
+    </script>  -->
+
+    <!-- <div id="box">
+
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data() {
+                return {
+                    temp: {
+
+                    }
+                }
+            },
+        })
+        vm.$set(vm.temp, 'hello', 'world')
+    </script> -->
+
+    <!-- <div id="box">
+        <h1>{{name | tempFilter}}</h1>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    name: 'zhangsan'
+                }
+            },
+            filters: {
+                tempFilter(value) {
+                    return value.slice(0, 4)
+                }
+            }
+        })
+    </script> -->
+
+    <div id="box">
+        <h1>{{number}}</h1>
+        <div v-big="number"></div>
+        <button @click="btn">点击n++</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data() {
+                return {
+                    number: 1,
+                }
+            },
+            methods: {
+                btn() {
+                    this.number++;
+                }
+            },
+            directives: {
+                big(element, binding) {
+                    console.log('hello');
+                    this.number++;
+                    element.innerText = binding.value * 10;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
