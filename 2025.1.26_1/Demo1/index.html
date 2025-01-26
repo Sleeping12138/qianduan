@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Vue3的数据绑定操作 —— 通过Proxy和Reflect进行数据的绑定
+        let people = {
+            name: 'zhangsan',
+            age: 18
+        }
+
+        let p = new Proxy(people, {
+            get(target, propName) {
+                return Reflect.get(target, propName);
+            },
+            set(target, propName, value) {
+                return Reflect.set(target, propName, value)
+            },
+            deleteProperty(target, propName) {
+                return Reflect.defineProperty(target, propName)
+            }
+        })
+    </script>
+</body>
+
+</html>
