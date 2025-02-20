@@ -1,0 +1,27 @@
+.box {
+    display: grid;
+    width: 950px;
+    height: 700px;
+    background-color: antiquewhite;
+    grid-template-columns: 100px 500px 300px;
+    grid-template-rows: repeat(3, 200px);
+    gap: 10px 10px;
+}
+
+.item {
+    background-color: aquamarine;
+    text-align: center;
+    line-height: 200px;
+}
+
+.item1 {
+    grid-column: 1 / 4;
+}
+
+.item2 {
+    grid-row: 2 / 4;
+}
+
+.item5 {
+    grid-area: 3 / 2 / 4 / 4;
+}

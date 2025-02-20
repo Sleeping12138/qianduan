@@ -1,0 +1,54 @@
+.box {
+    display: grid;
+    width: 550px;
+    height: 600px;
+    background-color: beige;
+    grid-template-columns: 100px 100px;
+    grid-template-rows: repeat(4, 100px);
+    /* row-gap: 10px;
+    column-gap: 10px; */
+    gap: 10px 10px;
+    grid-template-areas: 'a a a' 'b b b' 'c c c';
+    grid-auto-flow: column;
+    grid-auto-columns: 200px;
+}
+
+.item1 {
+    background-color: aqua;
+}
+
+.item2 {
+    background-color: aquamarine;
+}
+
+.item3 {
+    background-color: burlywood;
+}
+
+.item4 {
+    background-color: yellowgreen;
+}
+
+.item5 {
+    background-color: yellow;
+}
+
+.item6 {
+    background-color: violet;
+}
+
+.item7 {
+    background-color: turquoise;
+}
+
+.item8 {
+    background-color: tomato;
+}
+
+.item9 {
+    background-color: teal;
+}
+
+.item10 {
+    background-color: steelblue;
+}

@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    width: 100%;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item {
+    width: 22%;
+    height: 100px;
+    background-color: aquamarine;
+}
+
+/* .item2 {
+    align-self: center;
+}
+
+.item1 {
+    align-self: flex-start;
+}
+
+.item3 {
+    align-self: flex-end;
+} */
+
+.container {
+    display: flex;
+    margin-top: 20px;
+}
+
+.left {
+    background-color: yellowgreen;
+}
+
+.middle {
+    flex: 1;
+    text-align: center;
+}
+
+.right {
+    background-color: yellowgreen;
+}
